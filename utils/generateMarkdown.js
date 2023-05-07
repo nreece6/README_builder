@@ -4,9 +4,9 @@ function renderLicenseBadge(license) {
 
   
 if (license = 'MIT') {
-  licenseBadge = `![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)`
+  return `![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)`
 } else {
-  licenseBadge = ''
+  return ''
 }
 
 }
@@ -16,9 +16,9 @@ if (license = 'MIT') {
 function renderLicenseLink(license) {
 
   if (license = 'MIT') {
-    licenseLink = 'https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt'
+    return 'https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt'
   } else {
-    licenseLink = ''
+    return ''
   }
 }
 
@@ -26,7 +26,7 @@ function renderLicenseLink(license) {
 // If there is no license, return an empty string
 function renderLicenseSection(license) {
   if (license = 'MIT') {
-    license = `MIT License
+    return `MIT License
 
 Copyright (c) 2021 Othneil Drew
 
@@ -47,6 +47,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.`
+  } else {
+    return ''
   }
 }
 
@@ -54,45 +56,45 @@ SOFTWARE.`
 function generateMarkdown(data) {
   return `# ${data.title}
 
-          ${data.licenseBadge}
+${renderLicenseBadge(data.license)}
 
-          ##Descritption
+##Descritption
 
-          ${data.description}
+${data.description}
 
-          ## Table of Contents
+## Table of Contents
 
-          ## Installation
+## Installation
 
-          ${data.installation}
+${data.install}
 
-          ## Usage
+## Usage
 
-          ${data.usage}
+${data.usage}
 
-          ## License
+## Contributing
 
-          (${data.licenseLink})
+${data.contribution}
 
-          ${data.license}
+## License
 
-          ## Contributing
+${renderLicenseLink(data.license)}
 
-          ${data.contribution}
+${renderLicenseSection(data.license)}
 
-          ## License
+## Tests
 
-          [MIT](https://choosealicense.com/licenses/mit/)
+${data.tests}
 
-          ## Tests
+## Questions
 
-          ${data.tests}
+For any questions, please view my github account:
 
-          ## Questions
+${data.github}
 
-          For any questions, please view my github account ${github}
-
-          or you can reach me at ${email}
+or you can reach me at:
+ 
+${data.email}
 `;
 }
 

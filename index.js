@@ -56,9 +56,10 @@ message: 'Enter any test instructions.',
 
 {
 
-type: 'input',
+type: 'list',
 name: 'license',
-message: 'Enter your LinkedIn URL.',
+message: 'Choose a license you would like to add to your project',
+choices: ['MIT', 'APACHE2.0', 'Boost1.0', 'None']
 
 },
 
@@ -80,14 +81,15 @@ message: 'Enter your email address.',
 
 ])
 
-.then((answers) => {
+.then((data) => {
 
-const readMePage = generateMarkdown(answers);
+const readMePage = generateMarkdown(data);
 
 fs.writeFile('README.md', readMePage, (err) =>
 
-err ? console.log(err) : console.log('Successfully created index.html!')
+err ? console.log(err) : console.log('Successfully created README.md!')
 
 );
 
 });
+
