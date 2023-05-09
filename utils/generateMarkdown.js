@@ -23,11 +23,10 @@ function renderLicenseLink(license) {
   if (license = 'MIT') {
     return 'https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt'
   } else if (license = 'APACHE2.0') {
-   return 'http://www.apache.org/licenses/LICENSE-2.0' } if (license = 'Boost1.0') {
+   return 'http://www.apache.org/licenses/LICENSE-2.0' 
+  } else if (license = 'Boost1.0') {
     return 'https://www.boost.org/LICENSE_1_0.txt'
-   }
-   
-   else {
+  } else {
     return ''
   }
 }
@@ -94,7 +93,7 @@ limitations under the License.`
     ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
     DEALINGS IN THE SOFTWARE.`
   } else {
-    return ''
+    return 'N/A'
   }
 }
 
@@ -104,11 +103,19 @@ function generateMarkdown(data) {
 
 ${renderLicenseBadge(data.license)}
 
-##Descritption
+## Descritption
 
 ${data.description}
 
 ## Table of Contents
+
+  1. [Installation](#installation)
+  2. [Usage](#usage)
+  3. [Contributing](#contributing)
+  4. [License](#license)
+  5. [Tests](#tests)
+  6. [Questions](#questions)
+  
 
 ## Installation
 
